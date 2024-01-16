@@ -1,3 +1,5 @@
 % Omar Aguilar + Nick Stiebler
 
-v = 1./(2.^(0:10))
+A = magic(5)
+
+A(2:end, end)
