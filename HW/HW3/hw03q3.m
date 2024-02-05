@@ -23,4 +23,5 @@ toc
 
 % Explanation:
 % Function is O(n^2), so as n increases, the time it takes for the function
-% to be executed does as well.
+% to be executed does as well. When n doubles, the time it takes to
+% complete the algorithm is increased by a factor of 4.
