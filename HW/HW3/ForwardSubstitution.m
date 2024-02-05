@@ -1,3 +1,5 @@
+% Omar Aguilar
+
 function [x] = ForwardSubstitution(A,b)
 
 n = length(b);
