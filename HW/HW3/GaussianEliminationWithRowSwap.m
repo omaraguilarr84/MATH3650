@@ -6,8 +6,8 @@ n = length(b);
 
 for k = 1:n-1
     % Find largest absolute value in current column
-    [~, linearIndex] = max(abs(A(k:end,k))); % Think I need to implement this within the loop but not sure
-    [maxRow, ~] = ind2sub(size(A),linearIndex);
+    maxVal = max(abs(A(k:end,k)));
+    maxRow = find(A(k:end,k) == maxVal);
     
     % Row swap
     A([k,maxRow],:) = A([maxRow,k],:); % How does row swap work past the first one
@@ -19,7 +19,7 @@ for k = 1:n-1
     end
 
     % Apply transformation to remaining submatrix and RHS vector
-    for i = k+1:n
+     for i = k+1:n
         m = A(i,k)/A(k,k);
         for j = k+1:n
             A(i,j) = A(i,j) - m*A(k,j);
