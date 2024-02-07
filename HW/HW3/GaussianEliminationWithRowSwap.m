@@ -6,8 +6,9 @@ n = length(b);
 
 for k = 1:n-1
     % Find largest absolute value in current column
-    maxVal = max(abs(A(k:end,k)));
-    maxRow = find(A(k:end,k) == maxVal);
+    [~, maxRow] = max(abs(A(k:end,k)));
+    adj = k-1;
+    maxRow = maxRow + adj;
     
     % Row swap
     A([k,maxRow],:) = A([maxRow,k],:); % How does row swap work past the first one
