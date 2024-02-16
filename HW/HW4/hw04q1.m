@@ -16,4 +16,6 @@ error_ge = norm(x_ge - xref)
 error_gers = norm(x_gers - xref)
 
 %% Part C
-% Row swapping is a way to optimize the way the solution is found
+% In regular Gaussian Elimination, there is no way to zero out the rows
+% below it if there is a 0 on the pivot. Thus, row swapping is needed to
+% optimize the solution further to get a more accurate answer.
