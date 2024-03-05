@@ -10,10 +10,4 @@ BD = (f(x_0)-f(x_0-h))./h;
 CD = (f(x_0+h)-f(x_0-h))./(2*h);
 
 %% Part B
-fdx = @(x) 3*(x^2)*exp(x^3);
-exact = fdx(x_0);
-
-err_FD = abs(exact - FD);
-err_BD = abs(exact - BD);
-err_CD = abs(exact - CD);
-
+fdx = @(x) 3*(x^3)*exp()
