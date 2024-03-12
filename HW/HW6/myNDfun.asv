@@ -1,0 +1,8 @@
+% Omar Aguilar
+function f = myNDfun(x,y,z)
+
+f(1,1) = x^2 - y - sin(z) + 1;
+f(2,1) = x + 1 + sin(10*y) - x(2);
+f(3,1) = (1-x(1)) * x(3) - x(2);
+
+end

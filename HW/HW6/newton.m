@@ -12,13 +12,11 @@ fxk = fun(xnew);
 fxk = fxk(:); % this will force fxk to be a column vector
 [a,b]=size(fxk);
 if a~=n || b~=1
-error('function has wrong dimension, expecting %d x 1, but got %d x %d',n ,
-a, b)
+error('function has wrong dimension, expecting %d x 1, but got %d x %d',n ,a, b)
 end
 [a,b]=size(gradfxk);
 if a~=n || b~=n
-error('gradient has wrong dimension, expecting %d x %d, but got %d x %d',
-n, n, a, b)
+error('gradient has wrong dimension, expecting %d x %d, but got %d x %d',n, n, a, b)
 end
 xold = xnew;
 % x_k+1 = x_k - (grad f(xk))^{-1} * f(xk), but implement as a linear solve

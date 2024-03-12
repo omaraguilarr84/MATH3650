@@ -1,4 +1,5 @@
 % Omar Aguilar
+format long
 
 f = @(x) sin(x);
 fdx = @(x) cos(x);
