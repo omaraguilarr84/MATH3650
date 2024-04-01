@@ -20,18 +20,19 @@ N = 1250;
 for i = 1:3
     N = N*2
     [A,b] = finite_difference_system(N);
-% 1.
+    
+    % 1.
     tic
     x1 = A\b;
     toc
 
-% 2.
+    % 2.
     tic
     inv_A = inv(A);
     x2 = inv_A * b;
     toc
-
-% 3.
+    
+    % 3.
     A2 = sparse(A);    
     tic
     x3 = A2\b;
