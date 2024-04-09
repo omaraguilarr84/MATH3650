@@ -3,7 +3,6 @@
 function [l, x] = InvPowerMethod(A, x0, tolerance)
 
 x = x0;
-xold = x;
 
 l = x' * (A*x) / (x'*x);
 lold = l+1;
@@ -16,8 +15,7 @@ while abs(l-lold)>tolerance
     if itcount > 100
         error('iterations exceeded 100');
     end
-    y = A\xold;
-    xold = x;
+    y = A\x;
     x = y / norm(y,inf);
 
     lold = l;
