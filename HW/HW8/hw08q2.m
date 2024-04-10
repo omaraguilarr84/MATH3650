@@ -11,10 +11,10 @@ l1_verify = eigs(A);
 %% Part B
 x0 = [1; 1; 1];
 tolerance = 1e-8;
-[x2, l2] = PowerMethod(B, x0, tolerance);
-l2_verify = eigs(B)
+[x2, l2] = PowerMethod(B, x0, tolerance)
+l2_verify = eigs(B);
 
-[x3, l3] = PowerMethodMod(B, x0, tolerance);
+[x3, l3] = PowerMethodMod(B, x0, tolerance)
 
 %% Part C
 x0 = [2; -2; 2];

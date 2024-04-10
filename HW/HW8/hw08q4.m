@@ -22,7 +22,7 @@ P4 = 75;
 P_0 = [P1; P2; P3; P4];
 
 n = 3000;
-P1 = sum(mat^n * P_0);
+P_1 = sum(mat1^n * P_0)
 
 %% Part C
 b1 = 0.3;
@@ -39,4 +39,4 @@ mat2 = [b1 b2 b3 b4; (1-d1) 0 0 0; 0 (1-d2) 0 0; 0 0 (1-d3) (1-d4)];
 [~, l2] = PowerMethod(mat2, [1;1;1;1], 1e-8)
 
 n = 1000;
-P2 = sum(mat^n * P_0)
+P_2 = sum(mat2^n * P_0)
