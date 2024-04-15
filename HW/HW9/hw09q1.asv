@@ -32,3 +32,4 @@ y1(1)
 y2(1)
 
 % Piecewise
+y3 = zeros(1,length(y2));
