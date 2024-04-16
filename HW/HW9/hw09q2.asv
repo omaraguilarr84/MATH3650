@@ -1,0 +1,23 @@
+% Omar Aguilar
+
+condition = zeros(1,13);
+
+for i = 2:14
+    x = 1:i;
+    A = zeros(i,i);
+    for j = 1:i
+        A(:,j) = x.^(j-1);
+    end
+    condition(i-1) = cond(A,'Inf');
+end
+
+rel_err = condition * 2e-16;
+
+fprintf(['For n = 2:5, the maximum error is less than 10^-10, so there should only be small errors for these:\n' ...
+    'n = 2: %e\n' ...
+    'n = 3: %e\n' ...
+    'n = 4: %e\n' ...
+    'n = 5: %e\n'], rel_err(1),rel_err(2),rel_err(3),rel_err(4));
+
+fprintf(['For n = 6:14,the maximum error is larger than 10^-10, so large errors are expected, rendering them useless:\n' ...
+    'n = 6: %e/n'])

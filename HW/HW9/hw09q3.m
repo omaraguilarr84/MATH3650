@@ -19,17 +19,30 @@ data = [ ...
    
 px = data(1,:);
 py = data(2,:);
-[a0,a1] = fit_line(px,py)
+x = linspace(min(px),max(px),100);
 
-y_line = a0 + a1*px;
-y_exp = a0*exp(a1*px);
-y_power = a0*px.^a1;
+% Line
+[a0_line,a1_line] = fit_line(px,py);
+y_line = a0_line + a1_line.*x;
+
+% Exponential
+py_exp = log(py);
+[a0_exp,a1_exp] = fit_line(px,py_exp);
+b_exp = exp(a0_exp);
+y_exp = b_exp*exp(a1_exp*x);
+
+% Power
+px_power = log(px);
+py_power = log(py);
+[a0_power,a1_power] = fit_line(px_power,py_power);
+b_power = exp(a0_power);
+y_power = b_power*x.^a1_power;
 
 figure;
-plot(px,py,'rs',px,y_line,'b',px,y_exp,'g',px,y_power,'k');
+plot(px,py,'rs',x,y_line,'b',x,y_exp,'g',x,y_power,'k');
 legend('Data Points','Line','Exponential','Power');
 
 %% Part B
-fprintf('Line: y = %9.4f + %8.4f * x\n',a0,a1);
-fprintf('Exponential: y = %9.4f * e^(%8.4f * x)\n',a0,a1);
-fprintf('Power: y = %9.4f * x^%8.4f\n',a0,a1);
+fprintf('Line: y = %f + %f * x\n',a0_line,a1_line);
+fprintf('Exponential: y = %f * e^(%f * x)\n',b_exp,a1_exp);
+fprintf('Power: y = %f * x^%f\n',b_power,a1_power);
