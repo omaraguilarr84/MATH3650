@@ -1,5 +1,6 @@
 % Omar Aguilar
 
+%% Part A
 data = [ ...
     0.5339    0.5229    0.5418    0.5760    0.5845    0.6540    0.6725    0.6653    0.6712    0.7093    0.7291...
     0.7725    0.7701    0.8323    0.8511    0.8761    0.8484    0.8644    0.9363    0.8985    0.9118    0.9679...
@@ -25,5 +26,10 @@ y_exp = a0*exp(a1*px);
 y_power = a0*px.^a1;
 
 figure;
-plot(px,py,'rs',px,y_line,'b');
+plot(px,py,'rs',px,y_line,'b',px,y_exp,'g',px,y_power,'k');
 legend('Data Points','Line','Exponential','Power');
+
+%% Part B
+fprintf('Line: y = %9.4f + %8.4f * x\n',a0,a1);
+fprintf('Exponential: y = %9.4f * e^(%8.4f * x)\n',a0,a1);
+fprintf('Power: y = %9.4f * x^%8.4f\n',a0,a1);

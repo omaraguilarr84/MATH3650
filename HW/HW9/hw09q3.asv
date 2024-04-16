@@ -24,4 +24,10 @@ y_line = a0 + a1*px;
 y_exp = a0*exp(a1*px);
 y_power = a0*px.^a1;
 
-plot(px,py,'rs',px,y_line)
+figure;
+plot(px,py,'rs',px,y_line,'b',px,y_exp,'g',px,y_power,'k');
+legend('Data Points','Line','Exponential','Power');
+
+fprintf('Line: y = %9.4f + %8.4f * x\n',a0,a1);
+fprintf('Exponential: y = %9.4f * e^(%8.4f * x)\n',a0,a1);
+fprintf('Power: y = %9.4f * x^%8.4f\',a0,a1);
