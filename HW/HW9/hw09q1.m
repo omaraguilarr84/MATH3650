@@ -12,8 +12,9 @@ for i = 1:n
     A(:,i) = px.^(i-1);
 end
 c = A\py';
-x = linspace(-1,6,100);
-y1 = c(1) + c(2)*x + c(3)*x.^2 + c(4)*x.^3 + c(5)*x.^4 + c(6)*x.^5 + c(7)*x.^6;
+x = linspace(-1,7,100);
+func = @(x) c(1) + c(2)*x + c(3)*x.^2 + c(4)*x.^3 + c(5)*x.^4 + c(6)*x.^5 + c(7)*x.^6;
+y1 = func(x);
 
 % Cubic Spline
 cs = spline(px, py);
@@ -24,11 +25,30 @@ plot(px,py,'rs',x,y1,'b',x,y2,'m',px,py,'k');
 legend('Points','Polynomial','Cubic Spline','Piecewise');
 
 %% Part B
+x_eval = 1;
 
 % Polynomial
-y1(1)
+y1_eval = func(x_eval);
 
 % Cubic Spline
-y2(1)
+y2_eval = ppval(cs, x_eval);
 
 % Piecewise
+y3 = zeros(size(x));
+for i = 1:length(px)-1
+    idx = find(x >= px(i) & x <= px(i+1));
+    y3(idx) = py(i) + (py(i+1)-py(i))/(px(i+1)-px(i)) * (x(idx)-px(i));
+end
+y3_eval = interp1(px,py,x_eval);
+
+%% Part C
+h = 10^-3;
+
+% Polynomial
+slope1 = (func(x_eval + h) - func(x_eval - h))/(2 * h);
+
+% Cubic Spline
+slope2 = (ppval(cs, x_eval + h) - ppval(cs, x_eval -h))/(2 * h);
+
+% Piecewise
+slope3 = (interp1(px,py,x_eval+h)-interp1(px,py,x_eval-h))/(2 * h);
